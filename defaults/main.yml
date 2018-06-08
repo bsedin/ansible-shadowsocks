@@ -1,0 +1,19 @@
+---
+shadowsocks_container_name: shadowsocks
+shadowsocks_image: mritd/shadowsocks
+shadowsocks_version: latest
+shadowsocks_published_ports:
+  - 1080:1080
+  - 6500:6500/udp
+shadowsocks_links: []
+shadowsocks_networks: []
+shadowsocks_network_mode: ''
+shadowsocks_env:
+  SS_CONFIG: '-s 0.0.0.0 -p 1080 -m {{ shadowsocks_encryption_method }} -k {{ shadowsocks_password }} {{ shadowsocks_flags }}'
+  KCP_CONFIG: '-t 127.0.0.1:1080 -l :6500 -mode fast2'
+  KCP_FLAG: 'true'
+  KCP_MODULE: 'true'
+
+shadowsocks_password: password
+shadowsocks_encryption_method: aes-256-cfb
+shadowsocks_flags: '--fast-open'

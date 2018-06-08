@@ -1,0 +1,14 @@
+---
+- name: run shadowsocks container
+  docker_container:
+    state: started
+    restart: yes
+    recreate: yes
+    name: '{{ shadowsocks_container_name }}'
+    image: '{{ shadowsocks_image }}:{{ shadowsocks_version }}'
+    restart_policy: always
+    published_ports: '{{ shadowsocks_published_ports }}'
+    links: '{{ shadowsocks_links }}'
+    network_mode: '{{ shadowsocks_network_mode }}'
+    networks: '{{ shadowsocks_networks }}'
+    env: '{{ shadowsocks_env }}'

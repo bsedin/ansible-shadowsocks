@@ -15,5 +15,5 @@ shadowsocks_env:
   KCP_MODULE: 'true'
 
 shadowsocks_password: password
-shadowsocks_encryption_method: aes-256-cfb
+shadowsocks_encryption_method: chacha20-ietf-poly1305
 shadowsocks_flags: '--fast-open'

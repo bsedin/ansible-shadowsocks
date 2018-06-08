@@ -10,10 +10,11 @@ shadowsocks_networks: []
 shadowsocks_network_mode: ''
 shadowsocks_env:
   SS_CONFIG: '-s 0.0.0.0 -p 1080 -m {{ shadowsocks_encryption_method }} -k {{ shadowsocks_password }} {{ shadowsocks_flags }}'
-  KCP_CONFIG: '-t 127.0.0.1:1080 -l :6500 -mode fast2'
+  KCP_CONFIG: '-t 127.0.0.1:1080 -l :6500 {{ shadowsocks_kcp_flags }}'
   KCP_FLAG: 'true'
   KCP_MODULE: 'true'
 
 shadowsocks_password: password
 shadowsocks_encryption_method: chacha20-ietf-poly1305
 shadowsocks_flags: '--fast-open'
+shadowsocks_kcp_flags: '--mode fast2'
